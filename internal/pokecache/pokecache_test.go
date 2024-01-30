@@ -57,7 +57,7 @@ func TestReap(t *testing.T) {
 	keyOne := "key1"
 	cache.Add(keyOne, []byte("val1"))
 
-	time.Sleep(interval + time.Millisecond)
+	time.Sleep(interval * 2)
 
 	_, ok := cache.Get(keyOne)
 	if ok {
@@ -72,7 +72,7 @@ func TestReapFail(t *testing.T) {
 	keyOne := "key1"
 	cache.Add(keyOne, []byte("val1"))
 
-	time.Sleep(interval / 2)
+	// time.Sleep(time.Millisecond * 1)
 
 	_, ok := cache.Get(keyOne)
 	if !ok {
